@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/tumblr_white">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Información del restaurante"
+            android:textSize="25dp"
+            android:textAlignment="center"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:textColor="@color/tumblr_white"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+
+        android:layout_marginBottom="20dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/your_layout"
+            android:layout_width="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:orientation="vertical"
+
+            >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="550dp"
+            android:background="@color/tumblr_white"
+
+            android:orientation="vertical">
+            <GridLayout
+                android:id="@+id/mainGrid"
+                android:layout_weight="1"
+
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/tumblr_white"
+                android:alignmentMode="alignMargins"
+                android:columnCount="1"
+                android:layout_marginTop="0dp"
+
+                android:columnOrderPreserved="false"
+                android:listSelector="#0f0"
+                android:paddingBottom="10dp"
+
+                android:rowCount="3"
+                tools:targetApi="ice_cream_sandwich"
+                tools:ignore="UselessParent">
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:id="@+id/cv_fish"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_marginBottom="10dp"
+                    app:contentPadding="10dp"
+                    app:cardCornerRadius="5dp"
+                    >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginBottom="10dp"
+                    android:text="Nombre del restaurante"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:textSize="14dp"
+                    android:layout_height="match_parent"
+                    />
+
+            </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_marginBottom="10dp"
+                    app:cardCornerRadius="5dp"
+                    app:contentPadding="10dp"
+
+                    app:cardElevation="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Email"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:textSize="14dp"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_marginBottom="10dp"
+                    app:cardCornerRadius="5dp"
+                    app:contentPadding="10dp"
+
+
+                    app:cardElevation="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginBottom="10dp"
+                    android:text="Teléfono"
+                    android:layout_weight="1"
+
+                    />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="14dp"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:contentPadding="10dp"
+                    android:layout_marginBottom="10dp"
+
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="8dp">
+            <LinearLayout
+                android:id="@+id/your_layout02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_marginBottom="10dp"
+                    android:text="Dirección"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:textSize="14dp"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:contentPadding="10dp"
+
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Razón social : "
+                    android:layout_weight="1"
+
+                    />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="14dp"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </GridLayout>
+
+        </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_acept_encuestas_seg"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/backgroud_button"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:onClick="GoOption"
+                android:text="Siguiente"
+                android:layout_marginBottom="20dp"
+                android:textColor="@android:color/background_light"
+                />
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

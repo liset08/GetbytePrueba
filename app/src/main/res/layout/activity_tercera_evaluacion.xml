@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/cardview_light_background" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="950dp"
+                android:orientation="vertical">
+
+                <GridLayout
+                    android:id="@+id/mainGrid8"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:alignmentMode="alignMargins"
+                    android:columnCount="1"
+                    android:columnOrderPreserved="false"
+                    android:rowCount="1"
+                    tools:targetApi="ice_cream_sandwich"
+                    tools:ignore="UselessParent">
+
+                    <!-- Row 1 -->
+
+                    <!-- Column 1 -->
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        android:layout_marginBottom="16dp"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+
+
+                        >
+
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/textView104"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:layout_gravity="center_vertical"
+                                            android:textColor="@color/black"
+                                            android:text="Fecha : " />
+
+                                        <EditText
+                                            android:id="@+id/editText104"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:ems="10"
+                                            android:focusable="true"
+                                            android:inputType="date"
+
+                                            android:layout_marginLeft="17dp"
+                                            android:hint="13/01/2018" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:orientation="horizontal">
+
+                                        <Button
+                                            android:layout_width="0dp"
+                                            android:layout_height="20dp"
+                                            android:layout_weight="1"
+
+                                            android:textColor="@color/cardview_light_background"
+                                            android:background="@color/black"
+                                            android:text="Empleado" />
+
+                                        <EditText
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:ems="10"
+                                            android:focusable="true"
+
+                                            android:layout_marginLeft="20dp"
+                                            android:inputType="textPersonName"
+                                            android:hint="CO_001" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                    </android.support.v7.widget.CardView>
+
+
+
+
+
+
+
+
+
+                </GridLayout>
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:alignmentMode="alignMargins"
+                    android:columnCount="1"
+                    android:columnOrderPreserved="false"
+                    android:listSelector="#0f0"
+
+                    android:rowCount="1"
+                    tools:targetApi="ice_cream_sandwich"
+                    tools:ignore="UselessParent">
+
+                    <!-- Row 1 -->
+
+                    <!-- Column 1 -->
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        android:layout_marginBottom="16dp"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+
+
+                        >
+
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <ScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0"
+                                        android:layout_gravity="center_horizontal"
+                                        android:orientation="horizontal">
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:layout_marginBottom="10dp"
+                                            android:orientation="vertical">
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="50dp"
+                                                android:ems="10"
+                                                android:textAlignment="center"
+                                                android:gravity="center"
+                                                android:background="@color/colorPrimary"
+                                                android:inputType="textPersonName"
+                                                android:textColor="@color/cardview_light_background"
+                                                android:text="1"
+                                                android:textStyle="bold"/>
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_marginTop="5dp"
+                                                android:layout_height="30dp"
+                                                android:layout_marginBottom="10dp"
+                                                android:textColor="@color/black"
+                                                android:textAlignment="center"
+                                                android:layout_gravity="center"
+                                                android:textSize="10dp"
+                                                android:text="Muy insatisfactorio" />
+
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="50dp"
+                                                android:ems="10"
+                                                android:textAlignment="center"
+                                                android:gravity="center"
+                                                android:background="@color/colorPrimary"
+                                                android:inputType="textPersonName"
+                                                android:textColor="@color/cardview_light_background"
+                                                android:text="2"
+                                                android:textStyle="bold"/>
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_marginTop="5dp"
+                                                android:layout_height="30dp"
+                                                android:layout_marginBottom="10dp"
+                                                android:textColor="@color/black"
+                                                android:textAlignment="center"
+                                                android:gravity="center"
+                                                android:textSize="10dp"
+
+                                                android:layout_gravity="center"
+                                                android:text="Insatisfecho" />
+
+
+                                        </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="50dp"
+                                                android:ems="10"
+                                                android:textAlignment="center"
+                                                android:gravity="center"
+                                                android:background="@color/colorPrimary"
+                                                android:inputType="textPersonName"
+                                                android:textColor="@color/cardview_light_background"
+                                                android:text="3"
+                                                android:textStyle="bold"/>
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_marginTop="5dp"
+                                                android:layout_height="30dp"
+                                                android:layout_marginBottom="10dp"
+                                                android:textColor="@color/black"
+                                                android:textAlignment="center"
+                                                android:textSize="10dp"
+                                                android:gravity="center"
+
+                                                android:layout_gravity="center"
+                                                android:text="Satisfactorio" />
+
+
+                                        </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="50dp"
+                                                android:ems="10"
+                                                android:textAlignment="center"
+                                                android:gravity="center"
+                                                android:background="@color/colorPrimary"
+                                                android:inputType="textPersonName"
+                                                android:textColor="@color/cardview_light_background"
+                                                android:text="4"
+                                                android:textStyle="bold"/>
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_marginTop="5dp"
+                                                android:layout_height="30dp"
+                                                android:layout_marginBottom="10dp"
+                                                android:textColor="@color/black"
+                                                android:textAlignment="center"
+                                                android:layout_gravity="center"
+                                                android:textSize="10dp"
+                                                android:gravity="center"
+
+                                                android:text="Muy satisfactorio" />
+
+
+                                        </LinearLayout>
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="50dp"
+                                                android:ems="10"
+                                                android:textAlignment="center"
+                                                android:gravity="center"
+                                                android:background="@color/colorPrimary"
+                                                android:inputType="textPersonName"
+                                                android:textColor="@color/cardview_light_background"
+                                                android:text="5"
+                                                android:textStyle="bold"/>
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_marginTop="5dp"
+                                                android:layout_height="30dp"
+                                                android:layout_marginBottom="10dp"
+                                                android:textColor="@color/black"
+                                                android:textAlignment="center"
+                                                android:layout_gravity="center"
+                                                android:gravity="center"
+                                                android:textSize="10dp"
+                                                android:text="Sobresaliente" />
+
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+                                </ScrollView>
+
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </android.support.v7.widget.CardView>
+
+
+
+
+
+
+
+
+                </GridLayout>
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="730dp"
+                    android:alignmentMode="alignMargins"
+                    android:columnCount="1"
+                    android:columnOrderPreserved="false"
+                    android:listSelector="#0f0"
+                    android:rowCount="1"
+                    tools:targetApi="ice_cream_sandwich"
+                    tools:ignore="UselessParent">
+
+                    <!-- Row 1 -->
+
+                    <!-- Column 1 -->
+
+
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        android:layout_marginBottom="16dp"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+
+
+                        >
+
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:id="@+id/textView556"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="20dp"
+                                        android:text="Compromiso y presentismo"
+                                        android:textColor="@android:color/background_dark"
+                                        android:textSize="20sp"
+                                        android:textStyle="bold" />
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0"
+                                        android:layout_marginBottom="10dp"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:layout_marginBottom="10dp"
+                                            android:gravity="center_vertical"
+                                            android:textColor="@color/black"
+                                            android:text="Trabaja sin necesidad de supervisión" />
+
+                                        <com.zhouyou.view.seekbar.SignSeekBar
+                                            android:id="@+id/demo_5_seek_bar_1t"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            app:ssb_auto_adjust_section_mark="true"
+                                            android:layout_marginBottom="10dp"
+
+                                            app:ssb_second_track_color="@color/colorPrimaryDark"
+                                            app:ssb_second_track_size="9dp"
+                                            app:ssb_show_section_mark="false"
+                                            app:ssb_show_section_text="true"
+                                            app:ssb_show_sign="true"
+                                            app:ssb_show_thumb_shadow="true"
+                                            app:ssb_show_thumb_text="false"
+                                            app:ssb_text_space="3dp"
+                                            app:ssb_thumb_bg_alpha="0.3"
+                                            app:ssb_thumb_radius="5dp"
+                                            app:ssb_thumb_radius_on_dragging="10dp"
+                                            app:ssb_thumb_ratio="0.7"
+                                            app:ssb_thumb_text_size="16sp"
+                                            app:ssb_touch_to_seek="true"
+                                            app:ssb_track_color="@color/colorMarron2"
+                                            app:ssb_track_size="7dp"
+                                            />
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0"
+                                        android:layout_marginBottom="10dp"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:layout_marginBottom="10dp"
+                                            android:gravity="center_vertical"
+                                            android:textColor="@color/black"
+                                            android:text=" Se esfuerza más si la situación lo requiere" />
+
+                                        <com.zhouyou.view.seekbar.SignSeekBar
+                                            android:id="@+id/demo_5_seek_bar_2t"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            app:ssb_auto_adjust_section_mark="true"
+                                            android:layout_marginBottom="10dp"
+
+                                            app:ssb_second_track_color="@color/colorPrimaryDark"
+                                            app:ssb_second_track_size="9dp"
+                                            app:ssb_show_section_mark="false"
+                                            app:ssb_show_section_text="true"
+                                            app:ssb_show_sign="true"
+                                            app:ssb_show_thumb_shadow="true"
+                                            app:ssb_show_thumb_text="false"
+                                            app:ssb_text_space="3dp"
+                                            app:ssb_thumb_bg_alpha="0.3"
+                                            app:ssb_thumb_radius="5dp"
+                                            app:ssb_thumb_radius_on_dragging="10dp"
+                                            app:ssb_thumb_ratio="0.7"
+                                            app:ssb_thumb_text_size="16sp"
+                                            app:ssb_touch_to_seek="true"
+                                            app:ssb_track_color="@color/colorMarron2"
+                                            app:ssb_track_size="7dp"
+                                            />
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0"
+                                        android:layout_marginBottom="10dp"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:layout_marginBottom="10dp"
+                                            android:gravity="center_vertical"
+                                            android:textColor="@color/black"
+                                            android:text=" Puntualidad" />
+
+                                        <com.zhouyou.view.seekbar.SignSeekBar
+                                            android:id="@+id/demo_5_seek_bar_4t"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            app:ssb_auto_adjust_section_mark="true"
+                                            android:layout_marginBottom="10dp"
+
+                                            app:ssb_second_track_color="@color/colorPrimaryDark"
+                                            app:ssb_second_track_size="9dp"
+                                            app:ssb_show_section_mark="false"
+                                            app:ssb_show_section_text="true"
+                                            app:ssb_show_sign="true"
+                                            app:ssb_show_thumb_shadow="true"
+                                            app:ssb_show_thumb_text="false"
+                                            app:ssb_text_space="3dp"
+                                            app:ssb_thumb_bg_alpha="0.3"
+                                            app:ssb_thumb_radius="5dp"
+                                            app:ssb_thumb_radius_on_dragging="10dp"
+                                            app:ssb_thumb_ratio="0.7"
+                                            app:ssb_thumb_text_size="16sp"
+                                            app:ssb_touch_to_seek="true"
+                                            app:ssb_track_color="@color/colorMarron2"
+                                            app:ssb_track_size="7dp"
+                                            />
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0"
+                                        android:layout_marginBottom="10dp"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:layout_marginBottom="10dp"
+                                            android:gravity="center_vertical"
+                                            android:textColor="@color/black"
+                                            android:text="Presentismo" />
+
+                                        <com.zhouyou.view.seekbar.SignSeekBar
+                                            android:id="@+id/demo_5_seek_bar_5t"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            app:ssb_auto_adjust_section_mark="true"
+                                            android:layout_marginBottom="10dp"
+
+                                            app:ssb_second_track_color="@color/colorPrimaryDark"
+                                            app:ssb_second_track_size="9dp"
+                                            app:ssb_show_section_mark="false"
+                                            app:ssb_show_section_text="true"
+                                            app:ssb_show_sign="true"
+                                            app:ssb_show_thumb_shadow="true"
+                                            app:ssb_show_thumb_text="false"
+                                            app:ssb_text_space="3dp"
+                                            app:ssb_thumb_bg_alpha="0.3"
+                                            app:ssb_thumb_radius="5dp"
+                                            app:ssb_thumb_radius_on_dragging="10dp"
+                                            app:ssb_thumb_ratio="0.7"
+                                            app:ssb_thumb_text_size="16sp"
+                                            app:ssb_touch_to_seek="true"
+                                            app:ssb_track_color="@color/colorMarron2"
+                                            app:ssb_track_size="7dp"
+                                            />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginBottom="20dp"
+                                        android:layout_weight="0"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginBottom="10dp"
+                                            android:layout_weight="1"
+                                            android:gravity="center_vertical"
+                                            android:text="Promedio"
+                                            android:textAlignment="center"
+                                            android:textColor="@color/black"
+                                            android:textSize="16dp"
+                                            android:textStyle="bold" />
+
+                                        <EditText
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:enabled="true"
+                                            android:id="@+id/etext_pf3"
+                                            android:text="0"
+                                            android:onClick="promt"
+                                            android:focusable="false"
+                                            android:textAlignment="center"
+                                            android:textSize="16dp"
+                                            android:textStyle="bold"
+
+
+                                            />
+
+
+                                    </LinearLayout>
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </android.support.v7.widget.CardView>
+
+
+
+
+
+
+                </GridLayout>
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_choco_add"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/black"
+                    android:onClick="CuartaEvalua"
+                    android:text="Siguiente"
+                    android:padding="15dp"
+                    android:textColor="@android:color/background_light"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</ScrollView>

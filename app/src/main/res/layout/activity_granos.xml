@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/cardview_light_background" >
+
+    <TextView
+        android:id="@+id/textView104"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginBottom="20dp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:background="@color/colorPrimaryDark"
+        android:textSize="20dp"
+        android:textColor="@color/cardview_light_background"
+        android:text="CALIDAD DE LOS GRANOS" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/cardview_light_background"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="380dp"
+                    android:orientation="vertical">
+
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="380dp"
+                        android:alignmentMode="alignMargins"
+                        android:columnCount="1"
+                        android:columnOrderPreserved="false"
+                        android:listSelector="#0f0"
+                        android:rowCount="1"
+                        tools:ignore="UselessParent"
+                        tools:targetApi="ice_cream_sandwich">
+
+                        <!-- Row 1 -->
+
+                        <!-- Column 1 -->
+
+
+                        <android.support.v7.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_columnWeight="1"
+                            android:layout_marginBottom="16dp"
+                            android:layout_rowWeight="1"
+                            app:cardBackgroundColor="@android:color/transparent"
+
+
+                            >
+
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal|center_vertical"
+                                android:orientation="vertical"
+                                android:paddingLeft="16dp"
+                                android:paddingRight="16dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="10dp"
+                                            android:layout_weight="0"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_marginBottom="10dp"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:text="Estado"
+                                                android:textSize="16dp"
+                                                android:textStyle="bold"
+                                                android:textColor="@color/black" />
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginBottom="10dp"
+                                                android:layout_weight="0"
+                                                android:orientation="vertical">
+
+                                                    <CheckBox
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_weight="1"
+                                                        android:id="@+id/che_u"
+                                                        android:onClick="rbclickgr"
+                                                        android:text="Integros y limpios"
+                                                        android:textSize="14dp" />
+
+                                                    <CheckBox
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_weight="1"
+                                                        android:id="@+id/che_d"
+                                                        android:onClick="rbclickgrd"
+                                                        android:text="Presencia de granos deteriorados"
+                                                        android:textSize="14dp" />
+                                                    <CheckBox
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_weight="1"
+                                                        android:onClick="rbclickgrt"
+                                                        android:id="@+id/che_t"
+                                                        android:text="Granos picados por insecto o roedores "
+                                                        android:textSize="14dp" />
+                                                    <CheckBox
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_weight="1"
+                                                        android:id="@+id/che_c"
+                                                        android:onClick="rbclickgrc"
+                                                        android:text="Húmedos, hongueaos y con residuos de tierra"
+                                                        android:textSize="14dp" />
+                                                    <CheckBox
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_weight="1"
+                                                        android:id="@+id/che_ci"
+                                                        android:onClick="rbclickgrci"
+                                                        android:text="Olores raros"
+                                                        android:textSize="14dp" />
+                                                    <CheckBox
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_weight="1"
+                                                        android:onClick="rbclickgrs"
+                                                        android:id="@+id/che_s"
+                                                        android:text="Manchas de aceite o kerosene"
+                                                        android:textSize="14dp" />
+                                                    <CheckBox
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_weight="1"
+                                                        android:id="@+id/che_si"
+                                                        android:text="Otros"
+                                                        android:onClick="rbclickgrsi"
+                                                        android:textSize="14dp" />
+
+                                                    <LinearLayout
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginBottom="10dp"
+
+                                                        android:layout_weight="1"
+                                                        android:orientation="horizontal">
+
+                                                        <EditText
+                                                            android:layout_width="match_parent"
+                                                            android:layout_weight="0.5"
+                                                            android:id="@+id/et_gr"
+                                                            android:hint="Especifique..."
+                                                            android:textSize="14dp"
+                                                            android:layout_height="match_parent" />
+                                                    </LinearLayout>
+
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+
+                        </android.support.v7.widget.CardView>
+
+
+                    </GridLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_choco_add"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/backgroud_button"
+                        android:onClick="ButtonNextg"
+                        android:padding="15dp"
+                        android:text="Siguiente"
+                        android:textColor="@android:color/background_light"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>
