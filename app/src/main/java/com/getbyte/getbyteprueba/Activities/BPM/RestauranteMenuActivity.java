@@ -99,12 +99,12 @@ CardView cvFish , cvHarina ,cvFruta ,cvGranos, cvHuevos,cvHortaliza, cvTuber;
 
 
         if (parametros == null || parametros2 == null) {
-            Toast.makeText(this, "no lo se rick",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "add",Toast.LENGTH_SHORT).show();
 
             clicks();
 
         } else if (parametros == null || parametros2 != null){
-            Toast.makeText(this, "no lo se rick",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "add",Toast.LENGTH_SHORT).show();
             lista = parametros2.getStringArrayList("granos");
            // String str2 = Arrays.toString(lista.toArray());
 

@@ -2,10 +2,16 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
     <gradient
-        android:startColor="@color/colorPrimaryDark"
-        android:endColor="#8D6BA829"
+        android:startColor="#ffd"
+        android:endColor="#ffd"
         android:angle="45"
         >
 
+
     </gradient>
+    <stroke
+        android:width="6dp"
+        android:color="@color/colorPrimaryDark">
+
+    </stroke>
 </shape>

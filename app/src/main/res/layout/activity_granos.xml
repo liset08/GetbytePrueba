@@ -144,7 +144,7 @@
                                                         android:layout_height="match_parent"
                                                         android:layout_weight="1"
                                                         android:id="@+id/che_c"
-                                                        android:onClick="rbclickgrc"
+                                                        android:onClick="rbclickgrtc"
                                                         android:text="Húmedos, hongueaos y con residuos de tierra"
                                                         android:textSize="14dp" />
                                                     <CheckBox
