@@ -35,20 +35,20 @@ public interface UserClient {
 
     //crear usuario en conjunto con un catador experto
     @Multipart
-    @POST("/api/v1/catador")
+    @POST("/api/v1/calidad")
     Call<ResponseMessage> createCalidad(@Part("Producto") String Producto,
                                         @Part("Nombre_Científico") String Nombre_Científico,
-                                        @Part("Temperatura") Integer Temperatura,
+                                        @Part("Temperatura") String Temperatura,
                                         @Part("HR_Conservación") Integer HR_Conservación,
-                                        @Part("Marca") Integer Marca,
-                                        @Part("Presentación") Integer Presentación,
-                                        @Part("Dimensión") Integer Dimensión,
-                                        @Part("Material") Integer Material,
-                                        @Part("Etiqueta_trazabilidad") Integer Etiqueta_trazabilidad,
-                                        @Part("Peso_neto") Integer Peso_neto,
-                                        @Part("Cajas_parihuela_aerea") Integer Cajas_parihuela_aerea,
-                                        @Part("Cajas_parihuela_Marítima") Integer Cajas_parihuela_Marítima,
-                                        @Part("Dimensiones_material_parihuela") Integer Dimensiones_material_parihuela,
+                                        @Part("Marca") String Marca,
+                                        @Part("Presentación") String Presentación,
+                                        @Part("Dimensión") String Dimensión,
+                                        @Part("Material") String Material,
+                                        @Part("Etiqueta_trazabilidad") String Etiqueta_trazabilidad,
+                                        @Part("Peso_neto") String Peso_neto,
+                                        @Part("Cajas_parihuela_aerea") String Cajas_parihuela_aerea,
+                                        @Part("Cajas_parihuela_Marítima") String Cajas_parihuela_Marítima,
+                                        @Part("Dimensiones_material_parihuela") String Dimensiones_material_parihuela,
 
                                         @Part MultipartBody.Part imagen);
 }

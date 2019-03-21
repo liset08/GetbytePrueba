@@ -44,19 +44,17 @@ import retrofit2.Response;
 public class CalidadModulo extends AppCompatActivity {
     private static final String TAG = "CalidadModulo";
     private ImageView imagePreview;
-
-/*    EditText Producto,Nombre_Científico,Temperatura,HR_Conservación,Marca
+   EditText Producto,Nombre_Científico,Temperatura,HR_Conservación,Marca
             ,Presentacion,Dimensión,Material, Etiqueta_trazabilidad,Peso_neto,
             Cajas_parihuela_aerea,Cajas_parihuela_Marítima,Dimensiones_material_parihuela;
 
 
-    String producto,nombre_Científico,hR_Conservación,marca,
-            dimensión,presentacion,material,etiqueta_trazabilidad ,
+    String producto,nombre_Científico,marca,temperatura,peso_neto,
+            dimensión,material,etiqueta_trazabilidad ,presentacion,
             cajas_parihuela_aerea,cajas_parihuela_Marítima,dimensiones_material_parihuela ;
 
-    Double temperatura,peso_neto;
+    Integer hR_Conservación;
 
-    int presentación;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,32 +64,40 @@ public class CalidadModulo extends AppCompatActivity {
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
 
-       /* imagePreview = findViewById(R.id.imagepreview);
+       imagePreview = findViewById(R.id.imagepreview);
 
         Producto = (EditText) findViewById(R.id.etxt_producto);
         Nombre_Científico = (EditText) findViewById(R.id.etxt_namecienti);
 
-        HR_Conservación = (EditText) findViewById(R.id.etxt_namecienti);
+       // HR_Conservación = (EditText) findViewById(R.id.etxt_c);
         Marca = (EditText) findViewById(R.id.etxt_marca);
         Presentacion = (EditText) findViewById(R.id.etxt_presentacion);
         Dimensión = (EditText) findViewById(R.id.etxt_dimension);
         Material = (EditText) findViewById(R.id.etxt_material);
-        Etiqueta_trazabilidad = (EditText) findViewById(R.id.etxt_trazabi);
-        Peso_neto = (EditText) findViewById(R.id.etxt_pesoneto);
-        Cajas_parihuela_aerea = (EditText) findViewById(R.id.etxt_dimension);
-        Dimensiones_material_parihuela = (EditText) findViewById(R.id.etxt_trazabi);
+        Temperatura = (EditText) findViewById(R.id.etxt_temperatura);
 
+        Etiqueta_trazabilidad = (EditText) findViewById(R.id.etxt_trazabi)
+        ;
+        Peso_neto = (EditText) findViewById(R.id.etxt_pesoneto);
+        Cajas_parihuela_aerea = (EditText) findViewById(R.id.etxt_cajasaerea);
+        Dimensiones_material_parihuela = (EditText) findViewById(R.id.etxt_dimensionMatparihuela);
+        Cajas_parihuela_Marítima = (EditText) findViewById(R.id.etxt_cajasmaritima);
+
+        /*******************/
         producto = Producto.getText().toString();
         nombre_Científico = Nombre_Científico.getText().toString();
-        hR_Conservación = HR_Conservación.getText().toString();
-        temperatura = Temperatura.getText().toString();
-
-        marca = Marca.getText().toString();
+        hR_Conservación =Integer.parseInt("900");
+        presentacion =Presentacion.getText().toString();
         dimensión = Presentacion.getText().toString();
+        material = Material.getText().toString();
         temperatura = Temperatura.getText().toString();
+        marca = Marca.getText().toString();
 
+        etiqueta_trazabilidad = Etiqueta_trazabilidad.getText().toString();
+        peso_neto =  Peso_neto.getText().toString();
 
-
+        cajas_parihuela_aerea = Cajas_parihuela_aerea.getText().toString();
+        dimensiones_material_parihuela = Dimensiones_material_parihuela.getText().toString();
         cajas_parihuela_Marítima = Cajas_parihuela_Marítima.getText().toString();
 
 
@@ -233,14 +239,14 @@ public class CalidadModulo extends AppCompatActivity {
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
         byte[] byteArray = stream.toByteArray();
 
-        RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpegla"), byteArray);
+        RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), byteArray);
         MultipartBody.Part imagenPart = MultipartBody.Part.createFormData("imagen", file.getName(), requestFile);
 
 
 
         UserClient service = ApiServiceGenerator.createService(UserClient.class);
 
-        Call<ResponseMessage> calls = service.createCalidad(producto, nombre_Científico,temperatura,marca,presentación,,imagenPart)
+        Call<ResponseMessage> calls = service.createCalidad(producto, nombre_Científico,temperatura,hR_Conservación,marca,presentacion,dimensión,material,etiqueta_trazabilidad,peso_neto,cajas_parihuela_aerea,cajas_parihuela_Marítima,dimensiones_material_parihuela,imagenPart);
 
         calls.enqueue(new Callback<ResponseMessage>() {
             @Override
@@ -276,6 +282,6 @@ public class CalidadModulo extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
 
             }
-        });*/
+        });
 }
 }

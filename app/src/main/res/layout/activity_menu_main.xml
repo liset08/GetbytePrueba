@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/background_gradient"
+    android:background="#fff"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -30,15 +30,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:drawablePadding="12dp"
-        android:drawableLeft="@drawable/user"
+        android:drawableLeft="@drawable/ic_user"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
         android:maxLines="1"
         android:padding="8dp"
         android:hint="Usuario"
-        android:textColorHint="@color/tumblr_white"
-        android:textColor="@color/tumblr_white"
+        android:textColorHint="#002"
+        android:textColor="#002"
         android:inputType="textPersonName"
     >
 
@@ -48,7 +48,7 @@
         android:layout_height="1dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:background="#fff">
+        android:background="#6ba829">
 
     </View>
     <EditText
@@ -63,11 +63,11 @@
         android:inputType="textPassword"
         android:layout_marginTop="20dp"
         android:drawablePadding="12dp"
-        android:drawableLeft="@drawable/lock"
+        android:drawableLeft="@drawable/ic_lock"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:maxLines="1"
-        android:textColorHint="@color/tumblr_white"
+        android:textColorHint="#002"
         android:padding="8dp" />
 
     <View
@@ -75,13 +75,13 @@
         android:layout_height="1dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:background="#fff"/>
+        android:background="#6ba829"/>
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/background_login"
+        android:background="@drawable/backgroud_button"
         android:elevation="21dp"
         android:layout_marginTop="60dp"
         android:text="Ingresar"

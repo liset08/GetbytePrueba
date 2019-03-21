@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorMarron2"
+    android:background="#fff"
     >
     <!-- Bloque Contenido -->
 
@@ -56,7 +56,6 @@
                     <android.support.v7.widget.CardView
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        app:cardBackgroundColor="#40FFFFFF"
                         android:layout_columnWeight="1"
                         app:cardCornerRadius="10dp"
                         android:onClick="MenuCalidad"
@@ -75,11 +74,11 @@
                             android:layout_gravity="center_horizontal|center_vertical"
                             android:orientation="vertical">
                             <ImageView
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_marginTop="20dp"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginTop="30dp"
                                 android:layout_gravity="center_horizontal"
-                                android:background="@drawable/abc_ic_arrow_drop_right_black_24dp"
+                                android:background="@drawable/exam"
                                 />
 
                             <LinearLayout
