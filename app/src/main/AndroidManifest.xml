@@ -4,6 +4,7 @@
     android:installLocation="preferExternal">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
@@ -14,6 +15,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
+        <activity android:name=".Activities.ADMIN_CAL_PROD.ProduccionModulo"
+            android:theme="@style/AppTheme2"></activity>
+        <activity android:name=".Activities.ADMIN_CAL_PROD.CalidadModulo"
+            android:theme="@style/AppTheme2"/>
+        <activity android:name=".Activities.ADMIN_CAL_PROD.Eleccion_calProd"
+            android:theme="@style/AppTheme2"/>
         <activity
             android:name=".Activities.EvaluacionEMainActivity"
             android:label="Evaluación"
@@ -83,7 +90,7 @@
             android:theme="@style/AppTheme2" />
         <activity
             android:name=".Activities.BPM.Opciones.FrutasActivity"
-            android:theme="@style/AppTheme2"></activity>
+            android:theme="@style/AppTheme2" />
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.getbyte.getbyteprueba.Activities.ADMIN_CAL_PROD.Eleccion_calProd;
 import com.getbyte.getbyteprueba.Activities.BPM.MenuBPMActivity;
 import com.getbyte.getbyteprueba.R;
 
@@ -21,6 +22,10 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void BpmMenu(View view) {
         Intent intent = new Intent(this, MenuBPMActivity.class);
+        startActivity(intent);
+    }
+    public void MenuCalidad(View view) {
+        Intent intent = new Intent(this, Eleccion_calProd.class);
         startActivity(intent);
     }
 }

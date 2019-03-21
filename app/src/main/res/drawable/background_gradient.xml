@@ -10,7 +10,7 @@
 
     </gradient>
     <stroke
-        android:width="6dp"
+        android:width="3dp"
         android:color="@color/colorPrimaryDark">
 
     </stroke>
