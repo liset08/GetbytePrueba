@@ -36,6 +36,11 @@ public interface UserClient {
     Call<Graficos> findGraf(@Path("id") Integer id);
 
     //crear usuario en conjunto con un catador experto
+
+    ///consultas de el modulo de calidad de productos
+    @GET("/api/v1/calidad")
+    Call<List<Calidad>> getcalidad();
+
     @Multipart
     @POST("/api/v1/calidad")
     Call<ResponseMessage> createCalidad(@Part("Producto") RequestBody Producto,

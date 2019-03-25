@@ -7,6 +7,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
+import android.text.Layout;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.getbyte.getbyteprueba.Activities.PDF.EvaluacionCua;
@@ -82,7 +84,8 @@ public class PDFCalidadManager {
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                 Image myImg = Image.getInstance(stream.toByteArray());
-                myImg.setAlignment(Image.ALIGN_LEFT);
+              //  myImg.setAbsolutePosition(400f, 650f);
+                myImg.setAlignment(Image.ALIGN_CENTER);
 
                 document.open();
 
@@ -97,13 +100,20 @@ public class PDFCalidadManager {
                 addTitlePage2(document, title);
                 addInvoiceContent(document,invoiceObject.invoiceDetailsList);
                 addTitlePage2(document, title);
+                document.newPage();
 
-                String title2 = "Fotos de la evaluación";
-                addTitlePage2(document, title);
+                String title2 = "Evidencia de la evaluación";
 
                 addTitlePage2(document, title2);
+                //Adicionamos el logo de la empresa
+                document.add(myImg);
+                String title3 = "Alimentos en buen estado sin presencia de lago extraño.";
+
+                addTitlePage3(document, title3);
 
                 document.add(myImg);
+
+                addTitlePage3(document, title3);
 
                 //Creamos el total de la factura del documento
 
@@ -191,7 +201,7 @@ public class PDFCalidadManager {
         addEmptyLine(preface, 1);
 
         //Adicionamos los datos del Cliente
-        preface.add(new Paragraph(invoiceObject));
+        preface.add(new Paragraph(invoiceObject,subFont));
 
         addEmptyLine(preface, 1);
 
@@ -200,6 +210,35 @@ public class PDFCalidadManager {
 
         // Si queremos crear una nueva página
         //document.newPage();
+    }
+
+   public static Paragraph prefaces;
+    private static void addTitlePage3(Document document, String invoiceObject)
+            throws DocumentException {
+try {
+
+
+        prefaces = new Paragraph();
+        // Adicionamos una línea en blanco
+        addEmptyLine(prefaces, 1);
+
+        //Adicionamos los datos del Cliente
+        addChild(new Paragraph(invoiceObject,smallFont));
+
+        addEmptyLine(prefaces, 1);
+
+        //Adicionamos el párrafo creado al documento
+        document.add(prefaces);
+}catch (Exception e){
+    Log.e("titlt",e.toString());
+}
+        // Si queremos crear una nueva página
+        //document.newPage();
+    }
+    public static void addChild(Paragraph chilParagraph){
+        chilParagraph.setAlignment(Element.ALIGN_CENTER);
+        prefaces.add(chilParagraph);
+
     }
 
     //Creamos el contenido de la factura, las líneas con los artículos.
@@ -213,7 +252,9 @@ public class PDFCalidadManager {
         document.add(paragraph);
 
     }
-  //Creamos el subtotal y el total de la factura.
+
+
+    //Creamos el subtotal y el total de la factura.
     private static void addInvoiceTotal(Document document, InvoiceObject invoiceObject) throws DocumentException {
 
         Paragraph paragraph = new Paragraph();
@@ -235,20 +276,21 @@ public class PDFCalidadManager {
         //Definimos el ancho que corresponde a cada una de las 5 columnas
         float[] columnWidths = new float[]{200f, 100f};
         table.setWidths(columnWidths);
-
         //Definimos el ancho de nuestra tabla en %
         table.setWidthPercentage(100);
 
         // Aquí les dejos otras propiedades que pueden aplicar a la tabla
-        // table.setBorderColor(BaseColor.GRAY);
-    table.setPaddingTop(4);
-    table.setSpacingAfter(6);
-    table.setSpacingBefore(6);
-        // table.setBorderWidth(1);
+      // table.setBorderColor(BaseColor.GRAY);
+    table.setPaddingTop(20);
+
+    table.setSpacingAfter(20);
+    table.setSpacingBefore(20);
+   // table.setBorderWidth(1);
 
         //Definimos los títulos para cada una de las 5 columnas
         PdfPCell cell = new PdfPCell(new Phrase(mContext.getResources().getString(R.string.detail_code),smallBold));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setMinimumHeight(40);
         //Adicionamos el título de la primera columna
         table.addCell(cell);
 
@@ -269,6 +311,9 @@ public class PDFCalidadManager {
         tableSection.add(table);
     }
 
+
+
+
     //Procedimiento para crear una lines vacía
     private static void addEmptyLine(Paragraph paragraph, int number) {
         for (int i = 0; i < number; i++) {
@@ -278,7 +323,7 @@ public class PDFCalidadManager {
     //Procedimiento para adicionar una imagen al documento PDF
     private static void addImage(Document document) throws IOException, DocumentException {
 
-        Bitmap bitMap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.logo_getbyte);
+        Bitmap bitMap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.logo_blanco);
         bitMap = bitMap.createScaledBitmap(bitMap,96,96,false);  // cambio de resolucion de la imagen mapeada bitmap 96x96
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitMap.compress(Bitmap.CompressFormat.JPEG, 80, stream);
@@ -297,8 +342,12 @@ public class PDFCalidadManager {
         //Adicionamos celdas sin formato ni estilos, solo el valor
 
         table.addCell(invoiceLine.itemCode);
+        cell.setPhrase(new Phrase((invoiceLine.itemCode),smallFont));
+
         cell.setPhrase(new Phrase(String.valueOf(invoiceLine.itemName),smallFont));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setMinimumHeight(25);
+
         table.addCell(cell);
 
 
@@ -307,7 +356,7 @@ public class PDFCalidadManager {
 
 
     }
-    //Procedimiento para crear las líneas de la factura en forma de tabla.
+
 
     //Procedimiento para crear los totales y subtotales de la factura en forma de tabla.
     //Misma lógica utilizada para crear los títulos de las columnas de la factura
