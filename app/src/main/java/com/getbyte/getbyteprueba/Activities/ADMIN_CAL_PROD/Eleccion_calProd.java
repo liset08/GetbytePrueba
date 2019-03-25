@@ -3,6 +3,9 @@ package com.getbyte.getbyteprueba.Activities.ADMIN_CAL_PROD;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.StrictMode;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -11,26 +14,23 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
-
-import com.getbyte.getbyteprueba.Activities.BPM.MenuBPMActivity;
-import com.getbyte.getbyteprueba.Activities.EvaluacionEMainActivity;
-import com.getbyte.getbyteprueba.Activities.PDF.EvaluacionCua;
-import com.getbyte.getbyteprueba.Activities.PDF.EvaluacionQuin;
-import com.getbyte.getbyteprueba.Activities.PDF.EvaluacionTer;
-import com.getbyte.getbyteprueba.Activities.PDF.EvalucaionSeg;
 import com.getbyte.getbyteprueba.Activities.PDF.InvoiceDetails;
 import com.getbyte.getbyteprueba.Activities.PDF.InvoiceObject;
-import com.getbyte.getbyteprueba.Activities.PDF.PdfManager;
 import com.getbyte.getbyteprueba.Activities.RadarActivity;
 import com.getbyte.getbyteprueba.Model.Calidad;
 import com.getbyte.getbyteprueba.R;
 import com.getbyte.getbyteprueba.Service.ApiServiceGenerator;
 import com.getbyte.getbyteprueba.Service.UserClient;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Image;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.io.File;
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,11 +44,16 @@ public class Eleccion_calProd extends AppCompatActivity {
     private static final int REGISTER_FORM_REQUEST = 100;
     List<Calidad> catador;
 
+
+
     InvoiceObject invoiceObject = new InvoiceObject();
     private String INVOICES_FOLDER = "Invoices";
     private String FILENAME = "InvoiceSample.pdf";
     //Declaramos la clase PdfManager
     private PDFCalidadManager pdfCalidadManager = null;
+
+    public Bitmap bt;
+   public ImageView image;
 
     String[] permissions = new String[]{
             Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -81,6 +86,7 @@ public class Eleccion_calProd extends AppCompatActivity {
         Button create_pdf = (Button)findViewById(R.id.button_create_pdfmod);
         Button read_pdf = (Button)findViewById(R.id.button_read_pdfmod);
         Button send_email_pdf = (Button)findViewById(R.id.button_email_pdfmod);
+         image= (ImageView) findViewById(R.id.img_bitmap);
 
         create_pdf.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,6 +138,29 @@ public class Eleccion_calProd extends AppCompatActivity {
                         catador = response.body();
                         Log.d(TAG, "catador: " + catador);
                         Log.d(TAG, "CATADORR0000: " + catador.get(0).getMarca());
+                        String url = UserClient.API_BASE_URL+"/images/"+catador.get(0).getImagen();
+
+                        Picasso.with(Eleccion_calProd.this).load(url).into(new Target() {
+                            @Override
+                            public void onBitmapLoaded(final Bitmap bitmap, Picasso.LoadedFrom from) {
+
+                              image.setImageBitmap(bitmap);
+                                Log.e(TAG, "BITMAPPPPP:: " + bitmap);
+                                bt = bitmap;
+
+                            }
+
+                            @Override
+                            public void onBitmapFailed(Drawable errorDrawable) {
+
+                            }
+
+                            @Override
+                            public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+                            }
+                        });
+
                         createInvoiceObject();
 
 
@@ -156,6 +185,11 @@ public class Eleccion_calProd extends AppCompatActivity {
 
         });
     }
+
+
+
+
+
     public void Calidad(View view) {
         Intent intent = new Intent(this, CalidadModulo.class);
         startActivity(intent);
@@ -273,7 +307,7 @@ public class Eleccion_calProd extends AppCompatActivity {
             if (grantResults.length > 0
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 assert pdfCalidadManager != null;
-                pdfCalidadManager.createPdfDocument(invoiceObject);
+                pdfCalidadManager.createPdfDocument(invoiceObject,bt);
             }
             return;
         }

@@ -68,7 +68,7 @@ public class PDFCalidadManager {
         italicFontBold = new Font(unicode, 12,Font.ITALIC|Font.BOLD, BaseColor.BLACK);
     }
 
-    public void createPdfDocument(InvoiceObject invoiceObject) {
+    public void createPdfDocument(InvoiceObject invoiceObject,Bitmap bitmap) {
         try {
 
             //Creamos las carpetas en nuestro dispositivo, si existen las eliminamos.
@@ -78,7 +78,11 @@ public class PDFCalidadManager {
                 Document document = new Document();
                 PdfWriter.getInstance(document, new FileOutputStream(fullFileName));
 
-
+                bitmap = bitmap.createScaledBitmap(bitmap,170,170,false);  // cambio de resolucion de la imagen mapeada bitmap 96x96
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                Image myImg = Image.getInstance(stream.toByteArray());
+                myImg.setAlignment(Image.ALIGN_LEFT);
 
                 document.open();
 
@@ -89,16 +93,23 @@ public class PDFCalidadManager {
                 //Creamos el título del documento
                 addTitlePage(document, invoiceObject);
                 //Creamos el contenido en form de tabla del documento
-                String title = "Calidad y productividad";
+                String title = "";
                 addTitlePage2(document, title);
                 addInvoiceContent(document,invoiceObject.invoiceDetailsList);
-                addInvoiceTotal(document, invoiceObject);
+                addTitlePage2(document, title);
+
+                String title2 = "Fotos de la evaluación";
+                addTitlePage2(document, title);
+
+                addTitlePage2(document, title2);
+
+                document.add(myImg);
 
                 //Creamos el total de la factura del documento
 
                 document.close();
 
-                Toast.makeText(mContext, "PDF file created successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "PDF creado exitosamente", Toast.LENGTH_SHORT).show();
             }
 
         } catch (Exception e) {
@@ -267,7 +278,7 @@ public class PDFCalidadManager {
     //Procedimiento para adicionar una imagen al documento PDF
     private static void addImage(Document document) throws IOException, DocumentException {
 
-        Bitmap bitMap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.logopdf);
+        Bitmap bitMap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.logo_getbyte);
         bitMap = bitMap.createScaledBitmap(bitMap,96,96,false);  // cambio de resolucion de la imagen mapeada bitmap 96x96
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitMap.compress(Bitmap.CompressFormat.JPEG, 80, stream);

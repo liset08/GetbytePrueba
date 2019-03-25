@@ -179,7 +179,7 @@ Log.d(TAG,"REVISASSERRRRRR : "+producto);
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), mediaFileUri);
 
                     // Reducir la imagen a 800px solo si lo supera
-                    bitmap = scaleBitmapDown(bitmap, 800);
+                    bitmap = scaleBitmapDown(bitmap, 200);
 
                     imagePreview.setImageBitmap(bitmap);
                     crearCata();
