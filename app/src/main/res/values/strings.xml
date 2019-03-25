@@ -1,15 +1,15 @@
 <resources>
     <string name="app_name">GetbytePrueba</string>
-    <string name="invoice_number">11</string>
-    <string name="invoice_date">Date:</string>
+    <string name="invoice_number">ESPECIFICACIÓN TÉCNICA</string>
+    <string name="invoice_date">PRODUCTO TERMINADO “..”</string>
 
     <string name="company">Company:</string>
 
     <string name="client_title">Cliente:</string>
     <string name="client_name">Name:</string>
 
-    <string name="detail_code">Resultados por evaluación</string>
-    <string name="detail_description">TR001(Calificación)</string>
+    <string name="detail_code">DECSRIPCIÓN DEL PRODUCTO</string>
+    <string name="detail_description"></string>
     <string name="detail_amount">TR002(Calificación)</string>
     <string name="detail_price">Resultado Final</string>
     <string name="detail_total">Total</string>

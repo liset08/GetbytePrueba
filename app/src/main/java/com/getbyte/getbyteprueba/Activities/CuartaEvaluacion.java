@@ -186,5 +186,6 @@ public class CuartaEvaluacion extends AppCompatActivity {
         Log.v(TAG, "OBTENINTENT......." + pf2);
 
         startActivity(intent);
+        finish();
     }
 }

@@ -188,5 +188,7 @@ public class EvaluacionEMainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SegEvaluacion.class);
         intent.putExtra("pf1p", strI);
         startActivity(intent);
+        finish();
+
     }
 }

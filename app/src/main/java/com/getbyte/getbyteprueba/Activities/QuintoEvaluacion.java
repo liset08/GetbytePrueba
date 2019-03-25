@@ -196,6 +196,7 @@ public class QuintoEvaluacion extends AppCompatActivity {
                         intent.putExtra("idlast", strI);
 
                         startActivity(intent);
+                        finish();
 
 
                     }
@@ -219,6 +220,8 @@ public class QuintoEvaluacion extends AppCompatActivity {
     public void RepoEval(View view) {
         Intent intent = new Intent(this, RadarActivity.class);
         startActivity(intent);
+        finish();
+
     }
 }
 

@@ -24,6 +24,8 @@ import com.getbyte.getbyteprueba.Activities.BPM.Opciones.HortalizaMainActivity;
 import com.getbyte.getbyteprueba.Activities.BPM.Opciones.HuevosActivity;
 import com.getbyte.getbyteprueba.Activities.BPM.Opciones.RestuOpcionActivity;
 import com.getbyte.getbyteprueba.Activities.BPM.Opciones.TuberculosActivity;
+import com.getbyte.getbyteprueba.Activities.LoginActivity;
+import com.getbyte.getbyteprueba.Activities.MenuMainActivity;
 import com.getbyte.getbyteprueba.Activities.PDF.EvaluacionCua;
 import com.getbyte.getbyteprueba.Activities.PDF.EvaluacionQuin;
 import com.getbyte.getbyteprueba.Activities.PDF.EvaluacionTer;
@@ -271,7 +273,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
         invoiceObject.id=1234;
         invoiceObject.companyName="Getbyte.com";
         invoiceObject.companyAddress="Lima, 1024. Cp. 30100";
-
+/*
 int f= lista.size();
         if (f == 1){
             InvoiceDetails invoiceDetails1 = new InvoiceDetails();
@@ -355,7 +357,7 @@ int f= lista.size();
 
         }
 
-
+*/
 
     }
     private boolean checkPermissions() {
@@ -549,5 +551,9 @@ int f= lista.size();
 
         Toast.makeText(this, str,Toast.LENGTH_SHORT).show();
 
+    }
+    public void BackMenu2(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 }

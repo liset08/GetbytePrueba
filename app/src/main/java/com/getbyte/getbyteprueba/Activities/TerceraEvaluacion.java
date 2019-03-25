@@ -188,5 +188,7 @@ public class TerceraEvaluacion extends AppCompatActivity {
         intent.putExtra("pf1t", pf1);
 
         startActivity(intent);
+        finish();
+
     }
 }

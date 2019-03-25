@@ -103,7 +103,7 @@ public class HuevosActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, RestauranteMenuActivity.class);
         intent.putExtra("nexthu", nexthu);
-        Toast.makeText(this, "hcascara "+ str + "hinterior "+ str2,Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(this, "hcascara "+ str + "hinterior "+ str2,Toast.LENGTH_SHORT).show();
 
         startActivity(intent);
 

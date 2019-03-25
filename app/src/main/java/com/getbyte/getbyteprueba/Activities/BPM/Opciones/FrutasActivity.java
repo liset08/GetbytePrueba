@@ -76,7 +76,7 @@ public class FrutasActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, RestauranteMenuActivity.class);
         intent.putExtra("nextf", nextf);
-        Toast.makeText(this, str,Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, str,Toast.LENGTH_SHORT).show();
 
         startActivity(intent);
 

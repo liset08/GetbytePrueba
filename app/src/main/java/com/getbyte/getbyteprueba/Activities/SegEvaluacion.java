@@ -157,5 +157,7 @@ public class SegEvaluacion extends AppCompatActivity {
 
 
         startActivity(intent);
+        finish();
+
     }
 }

@@ -74,7 +74,7 @@ public class TuberculosActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, RestauranteMenuActivity.class);
         intent.putExtra("nexttu", nexttu);
-        Toast.makeText(this, str,Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, str,Toast.LENGTH_SHORT).show();
 
         startActivity(intent);
         }

@@ -19,7 +19,10 @@
                 android:layout_weight="0.5"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:padding="15dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="5dp"
+android:paddingRight="5dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_width="match_parent"
@@ -125,9 +128,7 @@
             android:id="@+id/your_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="5dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="5dp"
             android:layout_marginBottom="20dp"
             android:orientation="vertical"
             android:paddingTop="10dp"
@@ -141,15 +142,14 @@
                 android:background="#6ba829"
                 android:padding="13dp"
                 android:text="DESCRIPCIÓN DEL PRODUCTO"
-                android:textColor="@color/black"
+                android:textColor="@color/tumblr_white"
+                android:textStyle="bold"
                 android:textSize="18dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="-6dp"
                 android:layout_marginBottom="20dp"
-                android:background="#fff"
                 android:orientation="vertical"
                 android:padding="18dp"
 
@@ -199,6 +199,7 @@
                         android:id="@+id/etxt_namecienti"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textStyle="italic"
                         android:textSize="11dp" />
 
                 </LinearLayout>
@@ -241,7 +242,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:text="Temperatura y HR de Conservación : "
+                        android:text="Temperatura (C°): "
                         android:textColor="@color/black" />
 
                     <EditText
@@ -249,6 +250,33 @@
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:textSize="11dp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+
+                    android:paddingTop="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="HR de Conservación (%) : "
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:id="@+id/etxt_hrconserva"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+
                         android:textSize="11dp" />
 
                 </LinearLayout>
@@ -259,16 +287,15 @@
                 android:layout_height="wrap_content"
                 android:background="#6ba829"
                 android:text="INFORMACIÓN DE LA CAJA"
-                android:textColor="@color/black"
+                android:textColor="@color/tumblr_white"
+                android:textStyle="bold"
                 android:padding="13dp"
                 android:textSize="18dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="-6dp"
                 android:layout_marginBottom="20dp"
-                android:background="#fff"
                 android:orientation="vertical"
                 android:padding="18dp"
 
@@ -313,7 +340,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:layout_weight="1"
-                        android:text="Presentación : "
+                        android:text="Presentación (Lb): "
                         android:textColor="@color/black"
 
 
@@ -325,6 +352,8 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
+                        android:inputType="numberDecimal"
+
                         android:textSize="11dp" />
 
                     <TextView
@@ -357,7 +386,7 @@
 
                     <EditText
                         android:id="@+id/etxt_dimension"
-
+                        android:inputType="numberDecimal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="11dp" />
@@ -430,7 +459,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:layout_weight="1"
-                        android:text="Peso neto  : "
+                        android:text="Peso neto  (Kg): "
                         android:textColor="@color/black"
 
 
@@ -441,6 +470,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:id="@+id/etxt_pesoneto"
+                        android:inputType="numberDecimal"
 
                         android:textSize="11dp" />
 
@@ -464,15 +494,14 @@
                 android:background="#6ba829"
                 android:padding="13dp"
                 android:text="INFORMACIÓN DE PALETIZADO"
-                android:textColor="@color/black"
+                android:textColor="@color/tumblr_white"
+                android:textStyle="bold"
                 android:textSize="18dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="-6dp"
                 android:layout_marginBottom="20dp"
-                android:background="#fff"
                 android:orientation="vertical"
                 android:padding="18dp"
 
@@ -498,6 +527,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/etxt_cajasaerea"
+                        android:inputType="number"
 
                         android:textSize="11dp" />
 
@@ -523,6 +553,8 @@
                         android:layout_width="match_parent"
                         android:id="@+id/etxt_cajasmaritima"
                         android:layout_height="wrap_content"
+                        android:inputType="number"
+
                         android:textSize="11dp" />
 
                 </LinearLayout>
@@ -547,6 +579,8 @@
                         android:layout_width="match_parent"
                         android:id="@+id/etxt_dimensionMatparihuela"
                         android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+
                         android:textSize="11dp" />
 
                 </LinearLayout>
@@ -556,35 +590,43 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
 
-                android:paddingTop="10dp">
+                android:padding="10dp">
 
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_gravity="center_horizontal"
-
-                    android:layout_weight="01"
-                    android:background="@drawable/ic_launcher_foreground"
-                    android:onClick="FinEncuesta"
-                    android:textColor="@drawable/exam" />
 
                 <ImageView
                     android:id="@+id/imagepreview"
-                    android:layout_width="0dp"
+                    android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_weight="1"
+
+
                     android:background="@drawable/ic_launcher_foreground"
                     android:onClick="FinEncuesta"
+                    android:text="Enviar"
+                    android:textColor="@android:color/background_light" />
+                <ImageView
+                android:id="@+id/imagepreview1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+
+
+                android:background="@drawable/ic_launcher_foreground"
+                android:onClick="FinEncuesta"
+                android:text="Enviar"
+                android:textColor="@android:color/background_light" />
+                <ImageView
+                    android:id="@+id/imagepreview2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/ic_launcher_foreground"
+                    android:onClick="takePicture"
                     android:text="Enviar"
                     android:textColor="@android:color/background_light" />
             </LinearLayout>
@@ -599,13 +641,12 @@
 
                 <Button
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="15dp"
                     android:layout_gravity="center_horizontal"
 
                     android:layout_weight="0.2"
                     android:background="@drawable/ic_photo_camera"
-                    android:onClick="takePicture"
                     android:textColor="@android:color/background_light" />
 
                 <Button
@@ -619,12 +660,15 @@
                     android:layout_marginBottom="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/backgroud_button"
-                    android:onClick="crearCata"
+
                     android:text="Enviar"
                     android:textColor="@android:color/background_light" />
             </LinearLayout>
+
         </LinearLayout>
+
 
     </ScrollView>
 
 </LinearLayout>
+    <!--  android:onClick="crearCata"-->

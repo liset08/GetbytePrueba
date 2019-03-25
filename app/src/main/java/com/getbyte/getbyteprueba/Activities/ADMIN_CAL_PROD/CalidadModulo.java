@@ -15,24 +15,40 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+
+import com.getbyte.getbyteprueba.Activities.PDF.EvaluacionCua;
+import com.getbyte.getbyteprueba.Activities.PDF.EvaluacionQuin;
+import com.getbyte.getbyteprueba.Activities.PDF.EvaluacionTer;
+import com.getbyte.getbyteprueba.Activities.PDF.EvalucaionSeg;
+import com.getbyte.getbyteprueba.Activities.PDF.InvoiceDetails;
+import com.getbyte.getbyteprueba.Activities.PDF.InvoiceObject;
+import com.getbyte.getbyteprueba.Activities.PDF.PdfManager;
+import com.getbyte.getbyteprueba.Activities.RadarActivity;
+import com.getbyte.getbyteprueba.Model.Calidad;
+import com.getbyte.getbyteprueba.Model.Graficos;
 import com.getbyte.getbyteprueba.R;
 import com.getbyte.getbyteprueba.Service.ApiServiceGenerator;
 import com.getbyte.getbyteprueba.Service.ResponseMessage;
 import com.getbyte.getbyteprueba.Service.UserClient;
 import com.itextpdf.awt.geom.Dimension;
+import com.itextpdf.text.DocumentException;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -55,6 +71,17 @@ public class CalidadModulo extends AppCompatActivity {
 
     Integer hR_Conservación;
 
+    /*variable para el pdf*/
+    InvoiceObject invoiceObject = new InvoiceObject();
+    private String INVOICES_FOLDER = "Invoices";
+    private String FILENAME = "InvoiceSample.pdf";
+
+    private PDFCalidadManager pdfCalidadManager = null;
+
+    String[] permissions = new String[]{
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,41 +91,26 @@ public class CalidadModulo extends AppCompatActivity {
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
 
+
        imagePreview = findViewById(R.id.imagepreview);
 
-        Producto = (EditText) findViewById(R.id.etxt_producto);
-        Nombre_Científico = (EditText) findViewById(R.id.etxt_namecienti);
+        Producto = (EditText)findViewById(R.id.etxt_producto);
+        Nombre_Científico = (EditText)findViewById(R.id.etxt_namecienti);
 
        // HR_Conservación = (EditText) findViewById(R.id.etxt_c);
-        Marca = (EditText) findViewById(R.id.etxt_marca);
-        Presentacion = (EditText) findViewById(R.id.etxt_presentacion);
-        Dimensión = (EditText) findViewById(R.id.etxt_dimension);
-        Material = (EditText) findViewById(R.id.etxt_material);
-        Temperatura = (EditText) findViewById(R.id.etxt_temperatura);
+        Marca = (EditText)findViewById(R.id.etxt_marca);
+        Presentacion = (EditText)findViewById(R.id.etxt_presentacion);
+        Dimensión = (EditText)findViewById(R.id.etxt_dimension);
+        Material = (EditText)findViewById(R.id.etxt_material);
+        Temperatura = (EditText)findViewById(R.id.etxt_temperatura);
 
-        Etiqueta_trazabilidad = (EditText) findViewById(R.id.etxt_trazabi)
-        ;
+        Etiqueta_trazabilidad = (EditText)findViewById(R.id.etxt_trazabi);
         Peso_neto = (EditText) findViewById(R.id.etxt_pesoneto);
         Cajas_parihuela_aerea = (EditText) findViewById(R.id.etxt_cajasaerea);
         Dimensiones_material_parihuela = (EditText) findViewById(R.id.etxt_dimensionMatparihuela);
         Cajas_parihuela_Marítima = (EditText) findViewById(R.id.etxt_cajasmaritima);
 
-        /*******************/
-        producto = Producto.getText().toString();
-        nombre_Científico = Nombre_Científico.getText().toString();
-        hR_Conservación =Integer.parseInt("900");
-        presentacion =Presentacion.getText().toString();
-        dimensión = Presentacion.getText().toString();
-        material = Material.getText().toString();
-        temperatura = Temperatura.getText().toString();
-        marca = Marca.getText().toString();
 
-        etiqueta_trazabilidad = Etiqueta_trazabilidad.getText().toString();
-        peso_neto =  Peso_neto.getText().toString();
-
-        cajas_parihuela_aerea = Cajas_parihuela_aerea.getText().toString();
-        dimensiones_material_parihuela = Dimensiones_material_parihuela.getText().toString();
-        cajas_parihuela_Marítima = Cajas_parihuela_Marítima.getText().toString();
 
 
     }
@@ -110,7 +122,22 @@ public class CalidadModulo extends AppCompatActivity {
 
     public void takePicture(View view) {
         try {
+            /*******************/
+            producto = Producto.getText().toString();
+            nombre_Científico = Nombre_Científico.getText().toString();
+            hR_Conservación =Integer.parseInt("900");
+            presentacion =Presentacion.getText().toString();
+            dimensión = Presentacion.getText().toString();
+            material = Material.getText().toString();
+            temperatura = Temperatura.getText().toString();
+            marca = Marca.getText().toString();
+            etiqueta_trazabilidad = Etiqueta_trazabilidad.getText().toString();
+            peso_neto =  Peso_neto.getText().toString();
+            cajas_parihuela_aerea = Cajas_parihuela_aerea.getText().toString();
+            dimensiones_material_parihuela = Dimensiones_material_parihuela.getText().toString();
+            cajas_parihuela_Marítima = Cajas_parihuela_Marítima.getText().toString();
 
+Log.d(TAG,"REVISASSERRRRRR : "+producto);
             if (!permissionsGranted()) {
                 ActivityCompat.requestPermissions(this, PERMISSIONS_LIST, PERMISSIONS_REQUEST);
                 return;
@@ -155,6 +182,7 @@ public class CalidadModulo extends AppCompatActivity {
                     bitmap = scaleBitmapDown(bitmap, 800);
 
                     imagePreview.setImageBitmap(bitmap);
+                    crearCata();
                 } catch (Exception e) {
                     Log.d(TAG, e.toString());
                     Toast.makeText(this, "Error al procesar imagen: " + e.getMessage(), Toast.LENGTH_LONG).show();
@@ -176,16 +204,14 @@ public class CalidadModulo extends AppCompatActivity {
     };
 
 
-
-
-
     private boolean permissionsGranted() {
         for (String permission : PERMISSIONS_LIST) {
             if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED)
                 return false;
         }
         return true;
-}
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
@@ -194,10 +220,12 @@ public class CalidadModulo extends AppCompatActivity {
                     Log.d(TAG, "" + grantResults[i]);
                     if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
                         Toast.makeText(this, PERMISSIONS_LIST[i] + " permiso rechazado!", Toast.LENGTH_LONG).show();
+
                         return;
                     }
                 }
                 Toast.makeText(this, "Permisos concedidos, intente nuevamente.", Toast.LENGTH_LONG).show();
+
             }
         }
     }
@@ -223,7 +251,8 @@ public class CalidadModulo extends AppCompatActivity {
         return Bitmap.createScaledBitmap(bitmap, resizedWidth, resizedHeight, false);
     }
 
-    public void crearCata(View view){
+    public void crearCata(){
+
         File file = new File(mediaFileUri.getPath());
         Log.d(TAG, "File: " + file.getPath() + " - exists: " + file.exists());
 
@@ -240,13 +269,49 @@ public class CalidadModulo extends AppCompatActivity {
         byte[] byteArray = stream.toByteArray();
 
         RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg"), byteArray);
-        MultipartBody.Part imagenPart = MultipartBody.Part.createFormData("imagen", file.getName(), requestFile);
+
+        Calidad cal=new Calidad();
+        cal.setProducto(producto);
+        cal.setNombreCientifico(nombre_Científico);
+        cal.setTemperatura(temperatura);
+        cal.setHRConservacion(hR_Conservación);
+        cal.setMarca(marca);
+        cal.setPresentacion(presentacion);
+        cal.setDimension(dimensión);
+        cal.setMaterial(material);
+        cal.setEtiquetaTrazabilidad(etiqueta_trazabilidad);
+        cal.setPesoNeto(peso_neto);
+        cal.setCajasParihuelaAerea(cajas_parihuela_aerea);
+        cal.setCajasParihuelaMaritima(cajas_parihuela_Marítima);
+        cal.setDimensionesMaterialParihuela(dimensiones_material_parihuela);
+
+
+    MultipartBody.Part imagenPart = MultipartBody.Part.createFormData("imagen", file.getName(), requestFile);
+
+        RequestBody nombrePart = RequestBody.create(MultipartBody.FORM, producto);
+        RequestBody precioPart = RequestBody.create(MultipartBody.FORM, nombre_Científico);
+        RequestBody detallesPart = RequestBody.create(MultipartBody.FORM, temperatura);
+        RequestBody hRPart = RequestBody.create(MultipartBody.FORM, String.valueOf(hR_Conservación));
+        RequestBody marcaPart = RequestBody.create(MultipartBody.FORM, marca);
+        RequestBody presentacionPart = RequestBody.create(MultipartBody.FORM, presentacion);
+        RequestBody dimensiónPart = RequestBody.create(MultipartBody.FORM, dimensión);
+        RequestBody materialPart = RequestBody.create(MultipartBody.FORM, material);
+        RequestBody etiquetaPart = RequestBody.create(MultipartBody.FORM, etiqueta_trazabilidad);
+        RequestBody pesoPart = RequestBody.create(MultipartBody.FORM, peso_neto);
+        RequestBody cajasaPart = RequestBody.create(MultipartBody.FORM, cajas_parihuela_aerea);
+        RequestBody cajasmPart = RequestBody.create(MultipartBody.FORM, cajas_parihuela_Marítima);
+        RequestBody dimensionesPart = RequestBody.create(MultipartBody.FORM, dimensiones_material_parihuela);
+
+
+
+
+
 
 
 
         UserClient service = ApiServiceGenerator.createService(UserClient.class);
 
-        Call<ResponseMessage> calls = service.createCalidad(producto, nombre_Científico,temperatura,hR_Conservación,marca,presentacion,dimensión,material,etiqueta_trazabilidad,peso_neto,cajas_parihuela_aerea,cajas_parihuela_Marítima,dimensiones_material_parihuela,imagenPart);
+        Call<ResponseMessage> calls = service.createCalidad(nombrePart, precioPart,detallesPart,hRPart,marcaPart,presentacionPart,dimensiónPart,materialPart,etiquetaPart,pesoPart,cajasaPart,cajasmPart,dimensionesPart,imagenPart);
 
         calls.enqueue(new Callback<ResponseMessage>() {
             @Override
@@ -260,6 +325,7 @@ public class CalidadModulo extends AppCompatActivity {
 
                         ResponseMessage responseMessage = response.body();
                         Log.d(TAG, "responseMessage: " + responseMessage);
+                        Toast.makeText(CalidadModulo.this, "Registro completado",Toast.LENGTH_SHORT).show();
 
                         finish();
 
@@ -284,4 +350,6 @@ public class CalidadModulo extends AppCompatActivity {
             }
         });
 }
+
+
 }

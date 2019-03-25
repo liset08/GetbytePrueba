@@ -240,7 +240,7 @@ public class RadarActivity extends AppCompatActivity {
 
 
     public void BackMenu(View view) {
-        Intent intent = new Intent(this, MenuMainActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 

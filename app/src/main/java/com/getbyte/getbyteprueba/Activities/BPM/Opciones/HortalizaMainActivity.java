@@ -72,7 +72,7 @@ public class HortalizaMainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, RestauranteMenuActivity.class);
         intent.putExtra("nextho", nextho);
-        Toast.makeText(this, str,Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(this, str,Toast.LENGTH_SHORT).show();
 
         startActivity(intent);
 

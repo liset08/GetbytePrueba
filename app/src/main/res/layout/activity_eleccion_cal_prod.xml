@@ -177,7 +177,82 @@ android:layout_marginBottom="30dp"
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_next_pagemod"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="15dp"
+                android:onClick="BackMenu"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/cardview_dark_background"
+                android:text="Siguiente"
+                android:textColor="@color/cardview_light_background"
+                />
 
+            <Button
+                android:id="@+id/button_create_pdfmod"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="1"
+
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="15dp"
+                android:onClick="pdfView"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/cardview_dark_background"
+                android:text="Generar PDF"
+                android:textColor="@color/cardview_light_background"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/button_read_pdfmod"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="15dp"
+                android:onClick="pdfApp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/cardview_dark_background"
+                android:text="Mostrar PDF"
+                android:textColor="@color/cardview_light_background"
+                />
+            <Button
+                android:id="@+id/button_email_pdfmod"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="15dp"
+                android:onClick="pdfAppSend"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/cardview_dark_background"
+                android:text="Enviar PDF"
+                android:textColor="@color/cardview_light_background"
+                /></LinearLayout>
 
     </LinearLayout>
 
