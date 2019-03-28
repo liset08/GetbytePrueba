@@ -16,6 +16,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.getbyte.getbyteprueba.Activities.LoginActivity;
 import com.getbyte.getbyteprueba.Activities.PDF.InvoiceDetails;
 import com.getbyte.getbyteprueba.Activities.PDF.InvoiceObject;
 import com.getbyte.getbyteprueba.Activities.RadarActivity;
@@ -86,8 +88,8 @@ public class Eleccion_calProd extends AppCompatActivity {
         }
         Button create_pdf = (Button)findViewById(R.id.button_create_pdfmod);
         Button read_pdf = (Button)findViewById(R.id.button_read_pdfmod);
-        Button send_email_pdf = (Button)findViewById(R.id.button_email_pdfmod);
-         image= (ImageView) findViewById(R.id.img_bitmap);
+    //    Button send_email_pdf = (Button)findViewById(R.id.button_email_pdfmod);
+         //image= (ImageView) findViewById(R.id.img_bitmap);
 
         create_pdf.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +108,7 @@ public class Eleccion_calProd extends AppCompatActivity {
             }
         });
 
-        send_email_pdf.setOnClickListener(new View.OnClickListener() {
+    /*    send_email_pdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String emailTo ="mailTo@gmail.com";
@@ -114,7 +116,7 @@ public class Eleccion_calProd extends AppCompatActivity {
                 assert pdfCalidadManager != null;
                 pdfCalidadManager.sendPdfByEmail(INVOICES_FOLDER + File.separator + FILENAME,emailTo,emailCC, Eleccion_calProd.this);
             }
-        });
+        });*/
         /////
 
       //  entries = new ArrayList<>();
@@ -124,7 +126,7 @@ public class Eleccion_calProd extends AppCompatActivity {
 
         UserClient service = ApiServiceGenerator.createService(UserClient.class);
 
-        Call<List<Calidad>> call = service.findCalidad(16);
+        Call<List<Calidad>> call = service.findCalidad(46);
 
         call.enqueue(new Callback<List<Calidad>>() {
             @Override
@@ -145,7 +147,7 @@ public class Eleccion_calProd extends AppCompatActivity {
                             @Override
                             public void onBitmapLoaded(final Bitmap bitmap, Picasso.LoadedFrom from) {
 
-                              image.setImageBitmap(bitmap);
+                            //  image.setImageBitmap(bitmap);
                                 Log.e(TAG, "BITMAPPPPP:: " + bitmap);
                                 bt = bitmap;
 
@@ -297,23 +299,36 @@ public class Eleccion_calProd extends AppCompatActivity {
             }
         }
         if (!listPermissionsNeeded.isEmpty()) {
-            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]), 100);
+            ActivityCompat.requestPermissions(this, permissions, 100);
             return false;
         }
         return true;
     }
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        if (requestCode == 100) {
-            if (grantResults.length > 0
-                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                assert pdfCalidadManager != null;
-                pdfCalidadManager.createPdfDocument(invoiceObject,bt);
+        switch (requestCode) {
+            case 200: {
+                for (int i = 0; i < grantResults.length; i++) {
+                    Log.d(TAG, "" + grantResults[i]);
+                    if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                        Toast.makeText(this, permissions[i] + " permiso rechazado!", Toast.LENGTH_LONG).show();
+                        assert pdfCalidadManager != null;
+                        pdfCalidadManager.createPdfDocument(invoiceObject,bt);
+                        return;
+                    }
+                }
+                Toast.makeText(this, "Permisos concedidos, intente nuevamente.", Toast.LENGTH_LONG).show();
+
             }
-            return;
         }
+
     }
 
+    public void BackMain(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
 
 }

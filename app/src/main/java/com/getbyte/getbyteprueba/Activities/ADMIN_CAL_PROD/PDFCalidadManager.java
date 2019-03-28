@@ -115,6 +115,11 @@ public class PDFCalidadManager {
 
                 addTitlePage3(document, title3);
 
+                String title4 = "Identificacion de algun objeto extraño.";
+
+                document.add(myImg);
+
+                addTitlePage3(document, title4);
                 //Creamos el total de la factura del documento
 
                 document.close();

@@ -61,7 +61,7 @@ android:paddingRight="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:text="Producto Terminado  ''Holantao''"
+                        android:text="Producto Terminado "
                         android:textSize="15dp"
                         android:textAlignment="center"
                         android:gravity="center"
@@ -85,7 +85,7 @@ android:paddingRight="5dp"
                     android:layout_height="0dp"
                     android:layout_weight="0.3"
                     android:text="Código: AC-ET-03"
-                    android:textSize="8dp"
+                    android:textSize="9dp"
                     android:gravity="center"
                     android:textAlignment="center"
                     android:textColor="@color/black"
@@ -95,7 +95,7 @@ android:paddingRight="5dp"
                     android:layout_height="0dp"
                     android:layout_weight="0.3"
                     android:text="Revisión: 01"
-                    android:textSize="8dp"
+                    android:textSize="9dp"
                     android:gravity="center"
                     android:textAlignment="center"
                     android:textColor="@color/black"
@@ -106,7 +106,7 @@ android:paddingRight="5dp"
                     android:gravity="center"
                     android:layout_weight="0.3"
                     android:text="Fecha: 14/06/16"
-                    android:textSize="8dp"
+                    android:textSize="9dp"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:layout_gravity="center"/>
@@ -175,7 +175,7 @@ android:paddingRight="5dp"
                         android:id="@+id/etxt_producto"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="11dp" />
+                        android:textSize="12dp" />
 
                 </LinearLayout>
 
@@ -200,7 +200,7 @@ android:paddingRight="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textStyle="italic"
-                        android:textSize="11dp" />
+                        android:textSize="12dp" />
 
                 </LinearLayout>
 
@@ -225,7 +225,7 @@ android:paddingRight="5dp"
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="11dp" />
+                        android:textSize="12dp" />
 
                 </LinearLayout>
 
@@ -251,7 +251,7 @@ android:paddingRight="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
-                        android:textSize="11dp" />
+                        android:textSize="12dp" />
 
                 </LinearLayout>
                 <LinearLayout
@@ -277,7 +277,7 @@ android:paddingRight="5dp"
                         android:layout_height="wrap_content"
                         android:inputType="number"
 
-                        android:textSize="11dp" />
+                        android:textSize="12dp" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -322,7 +322,7 @@ android:paddingRight="5dp"
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="11dp" />
+                        android:textSize="12dp" />
 
                 </LinearLayout>
 
@@ -354,7 +354,7 @@ android:paddingRight="5dp"
                         android:layout_weight="0.5"
                         android:inputType="numberDecimal"
 
-                        android:textSize="11dp" />
+                        android:textSize="12dp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -389,7 +389,7 @@ android:paddingRight="5dp"
                         android:inputType="numberDecimal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="11dp" />
+                        android:textSize="12dp" />
 
                 </LinearLayout>
 
@@ -414,7 +414,7 @@ android:paddingRight="5dp"
                         android:layout_height="wrap_content"
                         android:id="@+id/etxt_material"
 
-                        android:textSize="11dp" />
+                        android:textSize="12dp" />
 
                 </LinearLayout>
 
@@ -440,7 +440,7 @@ android:paddingRight="5dp"
                         android:id="@+id/etxt_trazabi"
 
                         android:layout_height="wrap_content"
-                        android:textSize="11dp" />
+                        android:textSize="12dp" />
 
                 </LinearLayout>
 
@@ -472,7 +472,7 @@ android:paddingRight="5dp"
                         android:id="@+id/etxt_pesoneto"
                         android:inputType="numberDecimal"
 
-                        android:textSize="11dp" />
+                        android:textSize="12dp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -529,7 +529,7 @@ android:paddingRight="5dp"
                         android:id="@+id/etxt_cajasaerea"
                         android:inputType="number"
 
-                        android:textSize="11dp" />
+                        android:textSize="12dp" />
 
                 </LinearLayout>
 
@@ -555,7 +555,7 @@ android:paddingRight="5dp"
                         android:layout_height="wrap_content"
                         android:inputType="number"
 
-                        android:textSize="11dp" />
+                        android:textSize="12dp" />
 
                 </LinearLayout>
 
@@ -581,13 +581,21 @@ android:paddingRight="5dp"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
 
-                        android:textSize="11dp" />
+                        android:textSize="12dp" />
 
                 </LinearLayout>
 
 
             </LinearLayout>
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#6ba829"
+                android:padding="13dp"
+                android:text="IMAGENES"
+                android:textColor="@color/tumblr_white"
+                android:textStyle="bold"
+                android:textSize="18dp" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -597,38 +605,86 @@ android:paddingRight="5dp"
 
                 android:padding="10dp">
 
-
-                <ImageView
-                    android:id="@+id/imagepreview"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
+                    <ImageView
+                        android:id="@+id/imagepreview"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@android:color/background_light" />
 
-                    android:background="@drawable/ic_launcher_foreground"
-                    android:onClick="FinEncuesta"
-                    android:text="Enviar"
-                    android:textColor="@android:color/background_light" />
-                <ImageView
-                android:id="@+id/imagepreview1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center_horizontal"
+                    <EditText
+                        android:id="@+id/txt_imagepreview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Comentario"
+                        android:inputType="textCapSentences|textMultiLine"
+                        android:textSize="12dp"
+                        android:visibility="gone" />
+                </LinearLayout>
 
-
-                android:background="@drawable/ic_launcher_foreground"
-                android:onClick="FinEncuesta"
-                android:text="Enviar"
-                android:textColor="@android:color/background_light" />
-                <ImageView
-                    android:id="@+id/imagepreview2"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:background="@drawable/ic_launcher_foreground"
-                    android:onClick="takePicture"
-                    android:text="Enviar"
-                    android:textColor="@android:color/background_light" />
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/imagepreview1"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Enviar"
+                        android:textColor="@android:color/background_light" />
+
+                    <EditText
+                        android:id="@+id/txt_imagepreview1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Comentario"
+                        android:inputType="textCapSentences|textMultiLine"
+                        android:textSize="12dp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/imagepreview2"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/add"
+                        android:textColor="@android:color/background_light" />
+
+                    <EditText
+                        android:id="@+id/txt_imagepreview2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapSentences|textMultiLine"
+                        android:textSize="12dp"
+                        android:hint="Comentario"
+                        android:visibility="gone" />
+                </LinearLayout>
+
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -639,15 +695,7 @@ android:paddingRight="5dp"
 
                 android:paddingTop="10dp">
 
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_gravity="center_horizontal"
 
-                    android:layout_weight="0.2"
-                    android:background="@drawable/ic_photo_camera"
-                    android:textColor="@android:color/background_light" />
 
                 <Button
                     android:layout_width="0dp"
@@ -655,12 +703,11 @@ android:paddingRight="5dp"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_margin="30dp"
+
                     android:layout_weight="1"
                     android:background="@drawable/backgroud_button"
-
+                    android:onClick="Reg_Calidad"
                     android:text="Enviar"
                     android:textColor="@android:color/background_light" />
             </LinearLayout>

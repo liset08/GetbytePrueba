@@ -26,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.getbyte.getbyteprueba.Activities.LoginActivity;
 import com.getbyte.getbyteprueba.Activities.PDF.EvaluacionCua;
 import com.getbyte.getbyteprueba.Activities.PDF.EvaluacionQuin;
 import com.getbyte.getbyteprueba.Activities.PDF.EvaluacionTer;
@@ -59,10 +60,12 @@ import retrofit2.Response;
 
 public class CalidadModulo extends AppCompatActivity {
     private static final String TAG = "CalidadModulo";
-    private ImageView imagePreview;
+    int num_img =0;
+    private ImageView imagePreview,imagePreview1,imagePreview2;
    EditText Producto,Nombre_Científico,Temperatura,HR_Conservación,Marca
             ,Presentacion,Dimensión,Material, Etiqueta_trazabilidad,Peso_neto,
-            Cajas_parihuela_aerea,Cajas_parihuela_Marítima,Dimensiones_material_parihuela;
+            Cajas_parihuela_aerea,Cajas_parihuela_Marítima,Dimensiones_material_parihuela,
+    image,image1,image2;
 
 
     String producto,nombre_Científico,marca,temperatura,peso_neto,
@@ -78,10 +81,7 @@ public class CalidadModulo extends AppCompatActivity {
 
     private PDFCalidadManager pdfCalidadManager = null;
 
-    String[] permissions = new String[]{
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,8 +91,16 @@ public class CalidadModulo extends AppCompatActivity {
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
 
-
+//Procedimineto  de las imagenes y los comentarios
        imagePreview = findViewById(R.id.imagepreview);
+        imagePreview1 = findViewById(R.id.imagepreview1);
+        imagePreview2 = findViewById(R.id.imagepreview2);
+
+        image = findViewById(R.id.txt_imagepreview);
+        image1 = findViewById(R.id.txt_imagepreview1);
+        image2 = findViewById(R.id.txt_imagepreview2);
+
+
 
         Producto = (EditText)findViewById(R.id.etxt_producto);
         Nombre_Científico = (EditText)findViewById(R.id.etxt_namecienti);
@@ -111,6 +119,27 @@ public class CalidadModulo extends AppCompatActivity {
         Cajas_parihuela_Marítima = (EditText) findViewById(R.id.etxt_cajasmaritima);
 
 
+imagePreview2.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        takePicture();
+        num_img = 2;
+    }
+});
+        imagePreview1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                takePicture();
+                num_img = 1;
+            }
+        });
+        imagePreview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                takePicture();
+                num_img = 0;
+            }
+        });
 
 
     }
@@ -120,7 +149,8 @@ public class CalidadModulo extends AppCompatActivity {
 
     private Uri mediaFileUri;
 
-    public void takePicture(View view) {
+
+    public void takePicture() {
         try {
             /*******************/
             producto = Producto.getText().toString();
@@ -147,7 +177,7 @@ Log.d(TAG,"REVISASSERRRRRR : "+producto);
             File mediaStorageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
             if (!mediaStorageDir.exists()) {
                 if (!mediaStorageDir.mkdirs()) {
-                    throw new Exception("Failed to create directory");
+                    throw new Exception("Falla al crear el directorio");
                 }
             }
 
@@ -180,9 +210,34 @@ Log.d(TAG,"REVISASSERRRRRR : "+producto);
 
                     // Reducir la imagen a 800px solo si lo supera
                     bitmap = scaleBitmapDown(bitmap, 200);
+if (num_img==2){
 
-                    imagePreview.setImageBitmap(bitmap);
-                    crearCata();
+    imagePreview2.setImageBitmap(bitmap);
+    crearCata();
+    imagePreview1.setImageResource(R.drawable.add);
+    imagePreview2.setEnabled(false);
+    image2.setVisibility(View.VISIBLE);
+
+
+
+}else if (num_img==1){
+    imagePreview1.setImageBitmap(bitmap);
+    crearCata();
+    imagePreview.setImageResource(R.drawable.add);
+    imagePreview1.setEnabled(false);
+    image1.setVisibility(View.VISIBLE);
+
+
+}else if (num_img==0){
+    imagePreview.setImageBitmap(bitmap);
+    crearCata();
+    imagePreview.setEnabled(false);
+    image.setVisibility(View.VISIBLE);
+
+
+}
+
+
                 } catch (Exception e) {
                     Log.d(TAG, e.toString());
                     Toast.makeText(this, "Error al procesar imagen: " + e.getMessage(), Toast.LENGTH_LONG).show();
@@ -325,9 +380,8 @@ Log.d(TAG,"REVISASSERRRRRR : "+producto);
 
                         ResponseMessage responseMessage = response.body();
                         Log.d(TAG, "responseMessage: " + responseMessage);
-                        Toast.makeText(CalidadModulo.this, "Registro completado",Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(CalidadModulo.this, "Registro completado",Toast.LENGTH_SHORT).show();
 
-                        finish();
 
                     } else {
                         Log.e(TAG, "onError: " + response.errorBody().string());
@@ -351,5 +405,11 @@ Log.d(TAG,"REVISASSERRRRRR : "+producto);
         });
 }
 
+    public void Reg_Calidad(View view) {
+       Toast.makeText(CalidadModulo.this, "Registro completado",Toast.LENGTH_SHORT).show();
 
+        Intent intent = new Intent(this, Eleccion_calProd.class);
+        startActivity(intent);
+        finish();
+    }
 }
